@@ -26,6 +26,8 @@ const Home: React.FC<Props> = ({articles}) => {
   )
 }
 
+export default Home;
+
 export const getStaticProps = async () => {
   const data: ArticleListType = await client.get({endpoint: "articles"});
 
