@@ -1,9 +1,15 @@
+import React from "react";
 import dayjs from "dayjs";
 import styled from "styled-components";
-import Link from "next/link";
+import Link from "@/components/Link";
 import {client} from "@/libs/client"
+import {ArticleListType, ArticleType} from "@/types/api";
 
-export default function Home({articles}) {
+type Props = {
+  articles: ArticleType[];
+}
+
+const Home: React.FC<Props> = ({articles}) => {
   return (
     <div>
       <ul>
@@ -11,7 +17,7 @@ export default function Home({articles}) {
           <Item key={item.id}>
             <div className="published-date">{dayjs(item.publishedAt).format('YYYY/MM/DD')}</div>
             <Link href={`/articles/${item.id}`}>
-              <a className="title">{item.title}</a>
+              <span className="title">{item.title}</span>
             </Link>
           </Item>
         ))}
@@ -21,7 +27,7 @@ export default function Home({articles}) {
 }
 
 export const getStaticProps = async () => {
-  const data = await client.get({endpoint: "articles"});
+  const data: ArticleListType = await client.get({endpoint: "articles"});
 
   return {
     props: {

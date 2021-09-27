@@ -1,13 +1,20 @@
+import React from "react";
 import {client} from "@/libs/client";
 import dayjs from "dayjs";
 import styled from "styled-components";
 import cheerio from "cheerio";
 import hljs from "highlight.js"
 import 'highlight.js/styles/hybrid.css';
+import { ArticleType, ArticleListType } from "@/types/api";
 import Button from "@/components/Button";
 import {AiOutlineClockCircle} from "react-icons/ai";
+import {GetStaticPropsContext} from "next";
 
-const Article = ({article}) => {
+type Props = {
+  article: ArticleType;
+}
+
+const Article: React.FC<Props> = ({article}) => {
   return (
     <Main>
       <div className="clock">
@@ -17,7 +24,7 @@ const Article = ({article}) => {
       <h1 className="title">{article.title}</h1>
       <div className="category">
         {article.category.map((cat) => {
-          return <Button className="tag">{cat}</Button>
+          return <Button className="tag" key={cat}>{cat}</Button>
         })}
       </div>
       <div
@@ -34,15 +41,16 @@ const Article = ({article}) => {
 export default Article
 
 export const getStaticPaths = async () => {
-  const data = await client.get({endpoint: "articles"})
+  const data: ArticleListType = await client.get({endpoint: "articles"})
 
   const paths = data.contents.map((content) => `/articles/${content.id}`)
   return {paths, fallback: false};
 }
 
-export const getStaticProps = async (context) => {
-  const id = context.params.id
-  const data = await client.get({endpoint: "articles", contentId: id})
+export const getStaticProps = async (context: any) => {
+  const id = context.params?.id;
+
+  const data: ArticleType = await client.get({endpoint: "articles", contentId: id})
 
   const $ = cheerio.load(data.body);
   $('pre code').each((_, elm) => {
@@ -58,10 +66,10 @@ export const getStaticProps = async (context) => {
   }
 }
 
-const Main = styled.main`
+const Main = styled.div`
   background-color: #FFF;
   border-radius: 10px;
-  padding: 24px 32px;
+  padding: 32px;
   
   .title {
     font-size: 32px;

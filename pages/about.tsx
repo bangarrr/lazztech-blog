@@ -1,9 +1,10 @@
+import React from "react";
 import styled from "styled-components";
 import {Box, Flex} from "reflexbox"
 import {FaTwitterSquare, FaGithub} from "react-icons/fa";
 import Link from "@/components/Link";
 
-const About = () => {
+const About: React.FC = () => {
   return (
     <>
       <Box ml="12px">
@@ -23,10 +24,10 @@ const About = () => {
               <Box ml="4px">https://twitter.com/im_taihouyo</Box>
             </Flex>
           </Link>
-          <Link href="https://github.com/h-taihei">
+          <Link href="https://github.com/bangarrr">
             <Flex alignItems="center" mt="4px">
               <FaGithub/>
-              <Box ml="4px">https://github.com/h-taihei</Box>
+              <Box ml="4px">https://github.com/bangarrr</Box>
             </Flex>
           </Link>
         </Box>
