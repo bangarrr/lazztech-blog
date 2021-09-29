@@ -9,7 +9,7 @@ type Props = {
 
 const Link: React.FC<Props> = ({href, isOriginal = false, children}) => {
   return (
-    <NextLink href={href}>
+    <NextLink href={href} passHref>
       <StyledATag isOriginal={isOriginal}>
         {children}
       </StyledATag>
