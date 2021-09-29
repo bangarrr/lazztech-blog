@@ -623,6 +623,13 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.4.tgz#fcf7205c25dff795ee79af1e30da2c9790808f11"
   integrity sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==
 
+"@types/react-infinite-scroller@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@types/react-infinite-scroller/-/react-infinite-scroller-1.2.2.tgz#ee00ea8f5a03d3b6bf30842bd559283f8a7fdec9"
+  integrity sha512-3Tu/wspMKAOH/YkGmTrXgfYizL9DnMb4opksrl+m5jiESxGkRN4tiKf6lr7SN0FUgoFyQyK9o+yMKn1bWMTVmA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@17.0.24":
   version "17.0.24"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.24.tgz#7e1b3f78d0fc53782543f9bce6d949959a5880bd"
@@ -3137,7 +3144,7 @@ progress@^2.0.0:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-prop-types@^15.7.2:
+prop-types@^15.5.8, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -3245,6 +3252,13 @@ react-icons@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.2.0.tgz#6dda80c8a8f338ff96a1851424d63083282630d0"
   integrity sha512-rmzEDFt+AVXRzD7zDE21gcxyBizD/3NqjbX6cmViAgdqfJ2UiLer8927/QhhrXQV7dEj/1EGuOTPp7JnLYVJKQ==
+
+react-infinite-scroller@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/react-infinite-scroller/-/react-infinite-scroller-1.2.4.tgz#f67eaec4940a4ce6417bebdd6e3433bfc38826e9"
+  integrity sha512-/oOa0QhZjXPqaD6sictN2edFMsd3kkMiE19Vcz5JDgHpzEJVqYcmq+V3mkwO88087kvKGe1URNksHEOt839Ubw==
+  dependencies:
+    prop-types "^15.5.8"
 
 react-is@17.0.2:
   version "17.0.2"
