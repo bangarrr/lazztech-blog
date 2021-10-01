@@ -74,6 +74,7 @@ const Main = styled.div`
   .title {
     font-size: 32px;
     margin-bottom: 8px;
+    font-weight: 600;
   }
   
   .clock {
