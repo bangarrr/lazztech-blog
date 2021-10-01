@@ -6,6 +6,8 @@ import {client} from "@/libs/client"
 import InfiniteScroll from "react-infinite-scroller";
 import {VscLoading} from "react-icons/vsc";
 import {ArticleListType, ArticleType} from "@/types/api";
+import Tag from "@/components/Tag";
+import {AiOutlineCalendar} from "react-icons/ai";
 
 type Props = {
   articles: ArticleType[];
@@ -13,7 +15,7 @@ type Props = {
 
 const Home: React.FC<Props> = ({articles}) => {
   const itemsPerScroll = 10;
-  const [hasMore, setHasMore] = useState(true);
+  const [hasMore, setHasMore] = useState(articles.length > 10);
   const [items, setItems] = useState<ArticleType[]>(articles.slice(0, itemsPerScroll))
 
   const loadMore = (page: number) => {
@@ -38,10 +40,18 @@ const Home: React.FC<Props> = ({articles}) => {
           <ul>
             {items.map((item) => (
               <Item key={item.id}>
-                <div className="published-date">{dayjs(item.publishedAt).format('YYYY/MM/DD')}</div>
+                <div className="published-date">
+                  <AiOutlineCalendar/>
+                  {dayjs(item.publishedAt).format('YYYY/MM/DD')}
+                </div>
                 <Link href={`/articles/${item.id}`}>
                   <span className="title">{item.title}</span>
                 </Link>
+                <div className="category">
+                  {item.category.map((cat) => {
+                    return <Tag className="tag" key={cat}>{cat}</Tag>
+                  })}
+                </div>
               </Item>
             ))}
           </ul>
@@ -101,17 +111,30 @@ const Loading = styled(VscLoading)`
 `
 
 const Item = styled.li`
-  padding: 32px;
+  padding: 20px 32px;
   background-color: ${props => props.theme.colors.contrast};
   margin-bottom: 24px;
   border-radius: 16px;
   
   .published-date {
+    display: flex;
+    align-items: center;
     font-size: 14px;
     color: ${props => props.theme.colors.text.secondary};
+    
+    svg {
+      margin-right: 2px;
+    }
   }
   
   .title {
-    font-size: 22px;
+    font-size: 24px;
+  }
+  
+  .category {
+    margin-top: 8px;
+    .tag:not(:first-child) {
+      margin-left: 4px;
+    }
   }
 `

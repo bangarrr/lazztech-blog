@@ -6,7 +6,7 @@ import cheerio from "cheerio";
 import hljs from "highlight.js"
 import 'highlight.js/styles/hybrid.css';
 import { ArticleType, ArticleListType } from "@/types/api";
-import Button from "@/components/Button";
+import Tag from "@/components/Tag";
 import {AiOutlineClockCircle} from "react-icons/ai";
 import {GetStaticPropsContext} from "next";
 
@@ -24,7 +24,7 @@ const Article: React.FC<Props> = ({article}) => {
       <h1 className="title">{article.title}</h1>
       <div className="category">
         {article.category.map((cat) => {
-          return <Button className="tag" key={cat}>{cat}</Button>
+          return <Tag className="tag" key={cat}>{cat}</Tag>
         })}
       </div>
       <div

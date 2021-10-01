@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Button = styled.button`
+const Tag = styled.button`
   border-radius: 4px;
   border: none;
   display: inline-block;
@@ -8,6 +8,7 @@ const Button = styled.button`
   color: ${props => props.theme.colors.contrast};
   background-color: ${props => props.theme.colors.primary};
   cursor: pointer;
+  font-size: 12px;
 `
 
-export default Button;
+export default Tag;
