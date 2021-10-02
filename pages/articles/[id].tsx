@@ -103,5 +103,9 @@ const Main = styled.div`
       color: #ff357f;
       margin: 0 2px;
     }
+    
+    img {
+      width: 100%;
+    }
   }
 `
