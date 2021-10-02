@@ -9,6 +9,8 @@ import {ArticleListType, ArticleType} from "@/types/api";
 import Tag from "@/components/Tag";
 import {AiOutlineCalendar} from "react-icons/ai";
 import Meta from "@/components/Meta";
+import {Box} from "reflexbox";
+import TagList from "@/components/TagList";
 
 type Props = {
   articles: ArticleType[];
@@ -49,11 +51,9 @@ const Home: React.FC<Props> = ({articles}) => {
                 <Link href={`/articles/${item.id}`}>
                   <span className="title">{item.title}</span>
                 </Link>
-                <div className="category">
-                  {item.category.map((cat) => {
-                    return <Tag className="tag" key={cat}>{cat}</Tag>
-                  })}
-                </div>
+                <Box mt="8px">
+                  <TagList tags={item.category}/>
+                </Box>
               </Item>
             ))}
           </ul>
@@ -131,12 +131,5 @@ const Item = styled.li`
   
   .title {
     font-size: 24px;
-  }
-  
-  .category {
-    margin-top: 8px;
-    .tag:not(:first-child) {
-      margin-left: 4px;
-    }
   }
 `

@@ -9,6 +9,7 @@ const Tag = styled.button`
   background-color: ${props => props.theme.colors.primary};
   cursor: pointer;
   font-size: 12px;
+  min-height: 26px;
 `
 
 export default Tag;

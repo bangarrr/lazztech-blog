@@ -10,6 +10,7 @@ import Tag from "@/components/Tag";
 import {AiOutlineClockCircle} from "react-icons/ai";
 import {GetStaticPropsContext} from "next";
 import Meta from "@/components/Meta";
+import TagList from "@/components/TagList";
 
 type Props = {
   article: ArticleType;
@@ -24,11 +25,7 @@ const Article: React.FC<Props> = ({article}) => {
         {dayjs(article.publishedAt).format('YYYY/MM/DD')}
       </div>
       <h1 className="title">{article.title}</h1>
-      <div className="category">
-        {article.category.map((cat) => {
-          return <Tag className="tag" key={cat}>{cat}</Tag>
-        })}
-      </div>
+      <TagList tags={article.category}/>
       <div
         dangerouslySetInnerHTML={{
           __html: `${article.body}`,
@@ -85,26 +82,31 @@ const Main = styled.div`
     color: ${props => props.theme.colors.text.secondary};
   }
   
-  .category {
-    .tag:not(:first-child) {
-      margin-left: 4px;
-    }
-  }
-  
   .body {
     margin-top: 40px;
+    
     a {
       color: ${props => props.theme.colors.primary};
     }
     
-    :not(pre) > code {
+    ul {
+      padding: 1rem 0 1rem 1rem;
+    }
+    
+    li {
+      list-style: disc inside;
+    }
+    
+    code:not(.hljs) {
       border: 1px solid #ddd;
       background-color: #fff;
       color: #ff357f;
       margin: 0 2px;
+      padding: 2px;
     }
     
     img {
+      margin: 20px 0;
       width: 100%;
     }
   }
