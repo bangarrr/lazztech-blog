@@ -9,6 +9,7 @@ import { ArticleType, ArticleListType } from "@/types/api";
 import Tag from "@/components/Tag";
 import {AiOutlineClockCircle} from "react-icons/ai";
 import {GetStaticPropsContext} from "next";
+import Meta from "@/components/Meta";
 
 type Props = {
   article: ArticleType;
@@ -17,6 +18,7 @@ type Props = {
 const Article: React.FC<Props> = ({article}) => {
   return (
     <Main>
+      <Meta title={article.title}/>
       <div className="clock">
         <AiOutlineClockCircle/>
         {dayjs(article.publishedAt).format('YYYY/MM/DD')}

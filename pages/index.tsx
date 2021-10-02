@@ -8,6 +8,7 @@ import {VscLoading} from "react-icons/vsc";
 import {ArticleListType, ArticleType} from "@/types/api";
 import Tag from "@/components/Tag";
 import {AiOutlineCalendar} from "react-icons/ai";
+import Meta from "@/components/Meta";
 
 type Props = {
   articles: ArticleType[];
@@ -29,6 +30,7 @@ const Home: React.FC<Props> = ({articles}) => {
 
   return (
     <div>
+      <Meta/>
       <InfiniteScroll
         pageStart={0}
         initialLoad={false}

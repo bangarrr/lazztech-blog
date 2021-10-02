@@ -5,6 +5,7 @@ import {Box, Flex} from "reflexbox"
 import {FaTwitterSquare, FaGithub} from "react-icons/fa";
 import Link from "@/components/Link";
 import {ProfileType} from "@/types/api";
+import Meta from "@/components/Meta";
 
 type Props = {
   profile: ProfileType
@@ -13,6 +14,7 @@ type Props = {
 const About: React.FC<Props> = ({profile}) => {
   return (
     <>
+      <Meta title="プロフィール"/>
       <Box ml="12px">
         <h1>About</h1>
       </Box>
