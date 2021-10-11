@@ -5,12 +5,13 @@ import NextLink from "next/link";
 type Props = {
   href: string;
   isOriginal?: boolean;
+  blank?: boolean;
 }
 
-const Link: React.FC<Props> = ({href, isOriginal = false, children}) => {
+const Link: React.FC<Props> = ({href, isOriginal = false, blank = false, children}) => {
   return (
     <NextLink href={href} passHref>
-      <StyledATag isOriginal={isOriginal}>
+      <StyledATag isOriginal={isOriginal} target={blank ? '_blank' : '_self'}>
         {children}
       </StyledATag>
     </NextLink>

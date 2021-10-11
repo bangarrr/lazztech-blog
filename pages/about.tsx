@@ -23,18 +23,7 @@ const About: React.FC<Props> = ({profile}) => {
         <img src={`${profile.thumbnail.url}?w=200`} className="thumbnail"/>
         <div dangerouslySetInnerHTML={{__html: `${profile.body}`}}></div>
         <Box mt="16px">
-          <Link href="https://twitter.com/im_taihouyo">
-            <Flex alignItems="center">
-              <FaTwitterSquare/>
-              <Box ml="4px">https://twitter.com/im_taihouyo</Box>
-            </Flex>
-          </Link>
-          <Link href="https://github.com/bangarrr">
-            <Flex alignItems="center" mt="4px">
-              <FaGithub/>
-              <Box ml="4px">https://github.com/bangarrr</Box>
-            </Flex>
-          </Link>
+          {makeSnsLinks(profile)}
         </Box>
       </Wrapper>
     </>
@@ -42,6 +31,36 @@ const About: React.FC<Props> = ({profile}) => {
 }
 
 export default About;
+
+const makeSnsLinks = (profile: ProfileType) => {
+  const snsIcon = (snsType: string) => {
+    switch (snsType) {
+      case "github":
+        return <FaGithub/>
+        break
+      case "twitter":
+        return <FaTwitterSquare/>
+        break
+      default:
+        return ""
+    }
+  }
+
+  return (
+    <>
+      {profile.sns_links.map((sns, index) => {
+        return (
+          <Link href={sns.link} key={sns.link} blank={true}>
+            <Flex alignItems="center">
+              {snsIcon(sns.type)}
+              <Box ml="4px">{sns.link}</Box>
+            </Flex>
+          </Link>
+        );
+      })}
+    </>
+  )
+}
 
 export const getStaticProps = async () => {
   const data: ProfileType = await client.get({endpoint: "profile"});
