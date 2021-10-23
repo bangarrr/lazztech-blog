@@ -107,7 +107,18 @@ const Main = styled.div`
     
     img {
       margin: 20px 0;
-      width: 100%;
+      max-width: 100%;
+    }
+    
+    blockquote {
+      border-left: 4px solid #ccc;
+      margin-bottom: 12px;
+      margin-top: 12px;
+      padding-left: 16px;
+      
+      span {
+        color: ${props => props.theme.colors.text.secondary} !important;
+      }
     }
   }
 `
