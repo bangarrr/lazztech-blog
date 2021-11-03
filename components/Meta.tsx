@@ -3,9 +3,10 @@ import Head from "next/head";
 
 type Props = {
   title?: string;
+  description?: string;
 }
 
-const Meta: React.FC<Props> = ({title}) => {
+const Meta: React.FC<Props> = ({title, description}) => {
   return (
     <Head>
       <title>{title ? title + ` | Lazztech.dev` : `Lazztech.dev`}</title>
@@ -13,7 +14,7 @@ const Meta: React.FC<Props> = ({title}) => {
       <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       <meta
         name='description'
-        content='Lazztech.devのブログです。'
+        content={description || 'Lazztech.devのブログです。'}
       />
     </Head>
   )

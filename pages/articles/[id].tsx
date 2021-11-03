@@ -19,7 +19,7 @@ type Props = {
 const Article: React.FC<Props> = ({article}) => {
   return (
     <Main>
-      <Meta title={article.title}/>
+      <Meta title={article.title} description={article.title}/>
       <div className="clock">
         <AiOutlineClockCircle/>
         {dayjs(article.publishedAt).format('YYYY/MM/DD')}

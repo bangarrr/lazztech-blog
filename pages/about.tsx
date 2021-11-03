@@ -11,10 +11,12 @@ type Props = {
   profile: ProfileType
 }
 
+const metaTitle = "プロフィール"
+
 const About: React.FC<Props> = ({profile}) => {
   return (
     <>
-      <Meta title="プロフィール"/>
+      <Meta title={metaTitle}/>
       <Box ml="12px">
         <h1>About</h1>
       </Box>
