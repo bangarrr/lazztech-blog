@@ -1,12 +1,14 @@
-import React from "react";
-import styled from "styled-components";
+import React, {useContext} from "react";
+import styled, {ThemeContext} from "styled-components";
 import BaseContentBox from "@/components/BaseContentBox";
 
-const Footer = () => {
+const Footer= () => {
+  const themeContext = useContext(ThemeContext)
+
   return (
     <StyledFooter>
       <BaseContentBox>
-        <hr className="divider" color="#d3d3d3"/>
+        <hr className="divider" color={themeContext.colors.border}/>
         <span>©︎ 2021 Lazztech.dev</span>
       </BaseContentBox>
     </StyledFooter>

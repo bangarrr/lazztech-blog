@@ -120,5 +120,11 @@ const Main = styled.div`
         color: ${props => props.theme.colors.text.secondary} !important;
       }
     }
+    
+    h2 {
+      border-bottom: 1px solid;
+      border-color: ${props => props.theme.colors.border};
+      margin: 20px 0;
+    }
   }
 `

@@ -6,6 +6,7 @@ const theme = {
       primary: '#2d3748',
       secondary: '#969fa7',
     },
+    border: '#d3d3d3'
   }
 };
 
